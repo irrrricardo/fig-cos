@@ -1,0 +1,20 @@
+{
+  "hero": "Original SVG product illustration; conceptual reference-to-editable workflow.",
+  "animation": "Four SVG states rendered with CairoSVG; actual SVG text/fill/group-transform edits, not a desktop screen recording.",
+  "base": "Previously delivered original procedural DNA/cell example.",
+  "states": [
+    "original",
+    "cell heading changed to Study group A",
+    "DNA/highlight colors changed",
+    "cell component translated by 22,-10 source units"
+  ],
+  "scientific_reference_artwork_in_new_assets": false,
+  "license": "MIT",
+  "final_pptx": {
+    "native_object_count": 58,
+    "live_text_count": 6,
+    "raster_pictures": 0,
+    "actual_powerpoint_render_inspected": true,
+    "sha256": "5779ed5fe88425a7f9d536fb60f9e632fdcb25eaf5adb34b173394e8897f39e3"
+  }
+}

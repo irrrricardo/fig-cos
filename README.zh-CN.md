@@ -1,117 +1,136 @@
 # fig-cos
 
-**一个用于科研图片复现的 Agent Skill，交付可编辑 SVG 与原生 PowerPoint。**
+### 让科研图片，重新变得可编辑。
 
-[English](README.md) · [安装 Skill](#quick-start安装到你的-agent) · [SKILL.md](skills/fig-cos/SKILL.md) · [展示与署名](docs/GALLERY.md) · [质量规范](docs/QUALITY.md)
+把论文插图、机制示意和图形摘要交给你的 Agent，获得可以改文字、换配色、调布局的 **SVG 与 PowerPoint**。
 
-**把 Skill 安装到 Codex、Claude Code 或 DeepSeek Harness，附上参考图，再让 Agent 使用它完成复现。**
+[English](README.md) · [安装 Skill](#quick-start安装到你的-agent) · [下载技能包](https://github.com/irrrricardo/fig-cos/releases) · [查看效果](#看看它能做什么)
 
-默认采用 **Previous local tracing**：沿原图分组件局部描摹，保留形象、结构和位置，文字、框与箭头独立重建。模糊图片也沿用这条路线，不自动换成通用图标、另一种蛋白折叠或 AI 重画。
+![fig-cos：从参考图到可编辑科研图](docs/images/fig-cos-hero.png)
 
-本项目的核心是 **[skills/fig-cos/ 技能包](skills/fig-cos/)**。Python 脚本是技能的辅助执行工具，CLI 是可选开发入口；安装 Skill 本身不要求先安装一个 Python 应用，也没有额外的付费绘图后端或内置模型 API 客户端。
+**一张参考图，一句需求，让你的 Agent 接着画。**
 
-## 过去完成的效果
+fig-cos 是面向科研绘图的 **Agent Skill**，可安装到 **Codex、Claude Code 和 DeepSeek Harness**。从复现一张已有图片，到组织一张新的科研示意图，把图形变成能继续修改、讨论和交付的成果。
 
-![Biomni 参考图复现，历史 PowerPoint 实际显示](docs/images/biomni-reconstruction.png)
+```text
+使用 fig-cos，把这张参考图复现成可编辑 PPT。
+保留它的结构和布局，文字单独可改，图形按组件分组。
+```
 
-历史交付含 127 个真实文字对象、3,978 个原生对象，无嵌入位图。科学插画来自源图局部恢复/描摹，部分通用 UI 图标及论文缩略图使用替代示意；不宣称像素一致或语义图层恢复。改编自 Huang 等人的 *Biomni* 图 1，[bioRxiv 2025](https://doi.org/10.1101/2025.05.30.656746)，CC BY 4.0。[修改与署名](docs/GALLERY.md)。
+## 看看它能做什么
 
-![原图、早期不合适的图库替换、源图细节恢复的对照](docs/images/source-details.png)
+| 你想做的事 | fig-cos 帮你完成 |
+| --- | --- |
+| 复现论文里的复杂示意图 | 重建版式、文字和图形组件，交付 SVG / PPTX |
+| 把截图带进自己的汇报 | 保留参考图的形象与结构，继续修改标签、配色与位置 |
+| 完善机制图、图形摘要或流程图 | 组织内容层级，组合文字、箭头和科学插画 |
+| 给已有图件增加合适的元素 | 连接 Bioicons、Reactome、SciDraw 等图库，挑选和装配矢量素材 |
 
-中列仅作为早期替换不够贴合的对照；默认保留原图形象。论文衍生部分沿用同一来源与许可，图库部分单独署名。
+### 01 · 复杂科研图，也能继续修改
 
-![原创 DNA 和细胞可编辑组件，历史 PowerPoint 实际显示](docs/images/editable-components.png)
+多面板版式、密集标签、分子插画、流程箭头——把一张信息丰富的科研图，拆成可以继续使用的文字与组件。
 
-原创程序示意，不代表实测分子或细胞结构。[场景](examples/procedural/scene.json) · [SVG](examples/procedural/editable.svg) · [PPT](examples/procedural/editable.pptx)。
+![Biomni 多面板科研图复现，PowerPoint 实际渲染](docs/images/biomni-reconstruction.png)
+
+**127 段可编辑文字 · 25 组图形组件 · SVG + 原生 PPTX**
+
+案例：Huang 等，[*Biomni* 图 1](https://doi.org/10.1101/2025.05.30.656746)，CC BY 4.0，使用 fig-cos 重建。[图件来源与署名](docs/GALLERY.md)。
+
+### 02 · 改文字、换配色、移动组件
+
+标题换成自己的研究分组，重点细胞改成演示配色，再把组件挪到更合适的位置。科研图可以跟着你的论文和汇报一起迭代。
+
+![可编辑示例：修改标签、调整配色、移动细胞组件](docs/images/editable-in-action.gif)
+
+[打开修改后的 SVG](examples/editing/after.svg) · [下载可编辑 PPT](examples/editing/after.pptx) · [查看编辑示例](examples/editing/README.md)
+
+### 03 · 从一个想法，开始一张新图
+
+需要一段 DNA、一个细胞簇、一组流程关系？告诉 Agent 你想表达的内容，用文字、几何和科学组件搭建版式，再逐步完善。
+
+![DNA 与细胞组件示例，PowerPoint 实际渲染](docs/images/editable-components.png)
+
+[场景文件](examples/procedural/scene.json) · [SVG](examples/procedural/editable.svg) · [PowerPoint](examples/procedural/editable.pptx)
+
+## 从参考图到成品，三步就绪
+
+**① 给参考**：附上图片或 PDF，说明用途和想保留的部分。  
+**② 说需求**：复现整图、修改局部，或以它为起点继续设计。  
+**③ 接着改**：拿到 SVG、PPT 和预览，继续调整文字、组件与版式。
 
 ## Quick start：安装到你的 Agent
 
+先克隆仓库：
+
+```bash
+git clone https://github.com/irrrricardo/fig-cos.git
+cd fig-cos
+```
+
 ### Codex
 
-在 Codex 中让 Skill Installer 安装：
+```bash
+python tools/install_skill.py --agent codex
+```
+
+安装后附上参考图，直接调用：
+
+```text
+$fig-cos 把这张科研图复现成可编辑 SVG 和 PowerPoint。
+```
+
+也可以直接让 Codex 的 Skill Installer 安装：
 
 ```text
 $skill-installer install https://github.com/irrrricardo/fig-cos/tree/main/skills/fig-cos
 ```
 
-也可以先克隆仓库，再用仅复制文件的安装脚本：
-
-```bash
-git clone https://github.com/irrrricardo/fig-cos.git
-cd fig-cos
-python tools/install_skill.py --agent codex
-```
-
-默认安装到 `~/.agents/skills/fig-cos/`。附上参考图后调用：
-
-```text
-$fig-cos 按原图局部描摹复现这张图，保留组件形象、结构和版式，输出可编辑 SVG 与 PPT。
-```
-
-Codex 会自动发现技能；若未显示，重启会话。[官方说明](https://learn.chatgpt.com/docs/build-skills)。
-
 ### Claude Code
-
-在已克隆的仓库中执行：
 
 ```bash
 python tools/install_skill.py --agent claude
 ```
 
-默认安装到 `~/.claude/skills/fig-cos/`。附图后调用：
+附图后调用：
 
 ```text
-/fig-cos 按原图复现，保留原有组件和布局，输出可编辑 SVG 与 PowerPoint。
+/fig-cos 复现这张图，保留结构和布局，交付可编辑 PPT。
 ```
 
-[Claude Code 的技能目录与调用方式](https://code.claude.com/docs/en/skills)。
-
 ### DeepSeek Harness
-
-在已克隆的仓库中执行：
 
 ```bash
 python tools/install_skill.py --agent deepseek-harness
 ```
 
-默认安装到 `~/.dsh/skills/fig-cos/`，设置了 `DSH_HOME` 时跟随该配置。Harness 启用本地文件系统技能提供器后，附图并提示：
+附图并告诉 Agent：
 
 ```text
-请加载并使用 fig-cos Skill，按原图局部描摹复现这张图片，保留形象、结构与版式，交付可编辑 SVG 和 PPT。
+请加载 fig-cos Skill，把这张参考图重建成可编辑 SVG 和 PPT。
 ```
 
-这里指 DeepSeek 官方 **Harness**，不是网页聊天或单独的模型 API。[官方技能提供器说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/skill-filesystem/README.md)。
+### 安装目录
 
-### 项目内安装 / 手动安装
-
-安装脚本可加 `--scope project --project-dir 你的项目目录`。或从 [Releases](https://github.com/irrrricardo/fig-cos/releases) 下载 Skill ZIP，解压后将完整 `fig-cos` 文件夹放入：
-
-| Agent | 用户级目录 | 项目级目录 |
+| Agent | 用户级安装位置 | 项目级安装位置 |
 | --- | --- | --- |
 | Codex | `~/.agents/skills/fig-cos/` | `<项目>/.agents/skills/fig-cos/` |
 | Claude Code | `~/.claude/skills/fig-cos/` | `<项目>/.claude/skills/fig-cos/` |
 | DeepSeek Harness | `~/.dsh/skills/fig-cos/` | `<项目>/.dsh/skills/fig-cos/` |
 
-**复制整个技能包，不要只复制 SKILL.md。** 安装脚本仅用 Python 标准库、拒绝覆盖已有技能，不会安装依赖或修改 Agent 的配置。已有本机 `$fig_cos` 调用可继续保留。
+项目内安装可加 `--scope project --project-dir 你的项目目录`。也可从 [Releases](https://github.com/irrrricardo/fig-cos/releases) 下载技能包，解压后把完整 `fig-cos` 文件夹放入对应目录。
 
-## Agent 的运行条件
+安装位置、会话发现与环境准备见 [Agent 安装指南](docs/AGENTS.md) 和 [运行环境](docs/COMPATIBILITY.md)。
 
-Agent 需要能读取文件、运行 Python，并能看图或接收明确的文字/布局清单。实际调用辅助脚本时，可让 Agent 在自己的执行环境中准备技能包内的 `requirements.txt`。Ubuntu/glibc Linux 使用 Python 3.11/3.12；Windows CI 覆盖 3.11/3.13。CairoSVG 可能需要 Cairo 运行库和合适字体。[兼容性](docs/COMPATIBILITY.md)。
+## 让每次修改，都接得上
 
-生成原生 PPTX 不需要安装 Office；实际 PowerPoint 预览需要 Windows、桌面 PowerPoint 及可选 COM 依赖。PDF 局部恢复的 PyMuPDF 具有 AGPL/商业双许可，基本截图描摹与导出不需要它。上面的安装目录按官方文档核对，未声称已在每个 Agent 中完成独立端到端视觉验收。
+- **文字独立可改**：标题、标签和说明作为真实文字保留。
+- **图形按组件组织**：移动一个模块，或继续编辑它的路径。
+- **版式沿用原图**：从你选中的形象、结构和位置出发。
+- **成果方便交接**：SVG、PowerPoint、预览和场景文件一起带走。
+- **绘图与导出本地运行**：配合 Agent 完成从看图到交付的流程。
 
-## 使用规范
+[核心 Skill](skills/fig-cos/SKILL.md) · [工作流程](docs/WORKFLOW.md) · [质量规范](docs/QUALITY.md) · [辅助 CLI](docs/CLI.md) · [参与开发](CONTRIBUTING.md)
 
-- 参考图默认局部描摹，文字、框、箭头、组件组合保持独立可编辑。
-- 图库替换、AI 重画、通用组件和实验性精绘，仅在明确要求时采用。
-- 先核对原有形象、结构、连接、遮挡与布局，再看光滑度。路径数量、导出成功都不是质量结论。
-- 不把可编辑路径说成恢复了原始透明图层、分子身份、语义部件或隐藏像素。
-- 按要求交付 SVG/PPT、预览、场景或代码、来源及近似说明；未查看实际 PowerPoint 渲染时如实标明。
+## 致谢与许可
 
-[工作流程](docs/WORKFLOW.md) · [质量规范](docs/QUALITY.md) · [接入说明](docs/AGENTS.md)。没有内置 OCR/超分/生成模型，也没有附带 MCP 服务。
-
-## 辅助 CLI 与开发
-
-需要单独调试脚本的开发者可执行 `python -m pip install .`，获得 `fig-cos doctor / trace / compose / export` 等入口。**这是辅助工具，不是用户安装和使用 Skill 的主要方式。** 见 [CLI 文档](docs/CLI.md) 和 [贡献规范](CONTRIBUTING.md)。
-
-自写代码采用 MIT；供应代码、图库和论文衍生展示各自保留许可与署名，见 [第三方声明](THIRD_PARTY_NOTICES.md)。
+项目代码采用 MIT；图库与示例图件各自保留来源和许可。原生图形导出使用了 [yrui-cmd/Cell](https://github.com/yrui-cmd/Cell) 的公开 MIT 代码。完整署名见 [第三方声明](THIRD_PARTY_NOTICES.md) 与 [展示说明](docs/GALLERY.md)。

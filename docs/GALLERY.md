@@ -31,3 +31,9 @@ Private input screenshots, conversation archives, local paths, experimental work
 - `biomni-reconstruction.png` — SHA-256 `0c25b698e4bcd5240e17430a251e07cd634a0c4f86e1e63a69c1c220486bd823`
 - `editable-components.png` — SHA-256 `365dbeb8d04c39e691620a90e788ad215d3ea62c80aeb01f99b9bb6f1913be96`
 - `source-details.png` — SHA-256 `7692b37e7ea04cc1765ab8f5782f0ddc44b0f59e4fa8020e9ed5cce3c33c4ff5`
+
+<!-- product-showcase:start -->
+## Product artwork and editable example
+
+The fig-cos hero is an original SVG illustration of the reference-to-editable workflow. It is product artwork rather than a recorded conversion. The editing GIF is a CairoSVG animation of four actual edits to the project's original DNA/cell SVG: label, palette and component position. The downloadable PPTX was generated from the final SVG. [Source states and reproducible edits](../examples/editing/README.md), [provenance](showcase-provenance.json). These new assets are MIT licensed.
+<!-- product-showcase:end -->

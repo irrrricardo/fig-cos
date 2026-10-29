@@ -1,6 +1,6 @@
 include README.zh-CN.md AGENTS.md CONTRIBUTING.md CHANGELOG.md CITATION.cff
 recursive-include skills *
-recursive-include docs *.md *.json *.png
+recursive-include docs *.md *.json *.png *.gif *.svg
 recursive-include examples *.json *.svg *.pptx
 recursive-include tools *.py
 recursive-include tests *.py

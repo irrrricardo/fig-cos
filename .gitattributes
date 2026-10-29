@@ -4,6 +4,7 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.png binary
+*.gif binary
 *.pptx binary
 *.svg -text
 skills/fig-cos/scripts/vendor/** -text
