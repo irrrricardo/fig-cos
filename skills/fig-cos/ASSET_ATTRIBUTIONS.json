@@ -1,6 +1,6 @@
 [
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-012629.attribution.json",
+    "file": "skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-012629.attribution.json",
     "provider": "reactome",
     "id": "R-ICO-012629",
     "name": "DNA",
@@ -19,7 +19,7 @@
     "bundled_file": "reactome-R-ICO-012629.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-012630.attribution.json",
+    "file": "skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-012630.attribution.json",
     "provider": "reactome",
     "id": "R-ICO-012630",
     "name": "DNA 3D",
@@ -38,7 +38,7 @@
     "bundled_file": "reactome-R-ICO-012630.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-013306.attribution.json",
+    "file": "skills/fig-cos/assets/extended-catalogs/reactome-R-ICO-013306.attribution.json",
     "provider": "reactome",
     "id": "R-ICO-013306",
     "name": "Ribosome",
@@ -57,7 +57,7 @@
     "bundled_file": "reactome-R-ICO-013306.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/extended-catalogs/scidraw-dna-b7a7c4eb.attribution.json",
+    "file": "skills/fig-cos/assets/extended-catalogs/scidraw-dna-b7a7c4eb.attribution.json",
     "provider": "scidraw",
     "id": "dna-b7a7c4eb",
     "name": "DNA",
@@ -72,7 +72,7 @@
     "bundled_file": "scidraw-dna-b7a7c4eb.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-00349c8f3b-Scientist_female.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-00349c8f3b-Scientist_female.attribution.json",
     "path": "static/icons/cc-0/People-Other/B--Gideon-Bergheim/Scientist_female.svg",
     "license": "cc-0",
     "category": "People-Other",
@@ -88,7 +88,7 @@
     "bundled_file": "bioicons-00349c8f3b-Scientist_female.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-028e11d8a6-antibody-1.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-028e11d8a6-antibody-1.attribution.json",
     "path": "static/icons/cc-by-3.0/Blood_Immunology/Servier/antibody-1.svg",
     "license": "cc-by-3.0",
     "category": "Blood_Immunology",
@@ -104,7 +104,7 @@
     "bundled_file": "bioicons-028e11d8a6-antibody-1.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-163be33f4d-pill_blue.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-163be33f4d-pill_blue.attribution.json",
     "path": "static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_blue.svg",
     "license": "cc-0",
     "category": "Human_physiology",
@@ -120,7 +120,7 @@
     "bundled_file": "bioicons-163be33f4d-pill_blue.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-32a44c0fbe-cells_foci.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-32a44c0fbe-cells_foci.attribution.json",
     "path": "static/icons/cc-0/Cell_culture/Marcel_Tisch/cells_foci.svg",
     "license": "cc-0",
     "category": "Cell_culture",
@@ -136,7 +136,7 @@
     "bundled_file": "bioicons-32a44c0fbe-cells_foci.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-414cfb386d-Pyramidal_Neuron.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-414cfb386d-Pyramidal_Neuron.attribution.json",
     "path": "static/icons/cc-0/Human_physiology/Fabian-Mikulasch/Pyramidal_Neuron.svg",
     "license": "cc-0",
     "category": "Human_physiology",
@@ -152,7 +152,7 @@
     "bundled_file": "bioicons-414cfb386d-Pyramidal_Neuron.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-4b1e08a4a3-damaged_DNA.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-4b1e08a4a3-damaged_DNA.attribution.json",
     "path": "static/icons/cc-by-4.0/Genetics/Rahel-Khdhr/damaged_DNA.svg",
     "license": "cc-by-4.0",
     "category": "Genetics",
@@ -168,7 +168,7 @@
     "bundled_file": "bioicons-4b1e08a4a3-damaged_DNA.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-700dc2e05d-ribosome.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-700dc2e05d-ribosome.attribution.json",
     "path": "static/icons/cc-0/Intracellular_components/jaiganesh/ribosome.svg",
     "license": "cc-0",
     "category": "Intracellular_components",
@@ -184,7 +184,7 @@
     "bundled_file": "bioicons-700dc2e05d-ribosome.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-99f20e3d1d-Bacteria_Swimming.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-99f20e3d1d-Bacteria_Swimming.attribution.json",
     "path": "static/icons/cc-0/Microbiology/James-Lloyd/Bacteria_Swimming.svg",
     "license": "cc-0",
     "category": "Microbiology",
@@ -200,7 +200,7 @@
     "bundled_file": "bioicons-99f20e3d1d-Bacteria_Swimming.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-9deb199754-micropipette.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-9deb199754-micropipette.attribution.json",
     "path": "static/icons/cc-by-3.0/Chemistry/Servier/micropipette.svg",
     "license": "cc-by-3.0",
     "category": "Chemistry",
@@ -216,7 +216,7 @@
     "bundled_file": "bioicons-9deb199754-micropipette.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-c01e3241ed-neural-network-1.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-c01e3241ed-neural-network-1.attribution.json",
     "path": "static/icons/cc-0/Machine_Learning/Simon_Dürr/neural-network-1.svg",
     "license": "cc-0",
     "category": "Machine_Learning",
@@ -232,7 +232,7 @@
     "bundled_file": "bioicons-c01e3241ed-neural-network-1.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-e2744f1813-simple_DNA_backbone.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-e2744f1813-simple_DNA_backbone.attribution.json",
     "path": "static/icons/cc-by-4.0/Nucleic_acids/Marnie-Maddock/simple_DNA_backbone.svg",
     "license": "cc-by-4.0",
     "category": "Nucleic_acids",
@@ -248,7 +248,7 @@
     "bundled_file": "bioicons-e2744f1813-simple_DNA_backbone.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-e591e5bc19-protein-backbone-schematic.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-e591e5bc19-protein-backbone-schematic.attribution.json",
     "path": "static/icons/cc-0/Molecular_modelling/Simon_Dürr/protein-backbone-schematic.svg",
     "license": "cc-0",
     "category": "Molecular_modelling",
@@ -263,7 +263,7 @@
     "bundled_file": "bioicons-e591e5bc19-protein-backbone-schematic.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-f185e34331-DNA_double_helix.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-f185e34331-DNA_double_helix.attribution.json",
     "path": "static/icons/cc-0/Nucleic_acids/James-Lloyd/DNA_double_helix.svg",
     "license": "cc-0",
     "category": "Nucleic_acids",
@@ -279,7 +279,7 @@
     "bundled_file": "bioicons-f185e34331-DNA_double_helix.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/bioicons-f3d4e489ee-cell-1.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/bioicons-f3d4e489ee-cell-1.attribution.json",
     "path": "static/icons/cc-by-3.0/Tissues/Servier/cell-1.svg",
     "license": "cc-by-3.0",
     "category": "Tissues",
@@ -295,7 +295,7 @@
     "bundled_file": "bioicons-f3d4e489ee-cell-1.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-atom.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-atom.attribution.json",
     "provider": "Lucide",
     "name": "atom",
     "author": "Lucide contributors; Feather where applicable",
@@ -307,7 +307,7 @@
     "bundled_file": "lucide-atom.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-bot.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-bot.attribution.json",
     "provider": "Lucide",
     "name": "bot",
     "author": "Lucide contributors; Feather where applicable",
@@ -319,7 +319,7 @@
     "bundled_file": "lucide-bot.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-chart-no-axes-combined.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-chart-no-axes-combined.attribution.json",
     "provider": "Lucide",
     "name": "chart-no-axes-combined",
     "author": "Lucide contributors; Feather where applicable",
@@ -331,7 +331,7 @@
     "bundled_file": "lucide-chart-no-axes-combined.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-database.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-database.attribution.json",
     "provider": "Lucide",
     "name": "database",
     "author": "Lucide contributors; Feather where applicable",
@@ -343,7 +343,7 @@
     "bundled_file": "lucide-database.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-dna.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-dna.attribution.json",
     "provider": "Lucide",
     "name": "dna",
     "author": "Lucide contributors; Feather where applicable",
@@ -355,7 +355,7 @@
     "bundled_file": "lucide-dna.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-file-text.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-file-text.attribution.json",
     "provider": "Lucide",
     "name": "file-text",
     "author": "Lucide contributors; Feather where applicable",
@@ -367,7 +367,7 @@
     "bundled_file": "lucide-file-text.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-flask-conical.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-flask-conical.attribution.json",
     "provider": "Lucide",
     "name": "flask-conical",
     "author": "Lucide contributors; Feather where applicable",
@@ -379,7 +379,7 @@
     "bundled_file": "lucide-flask-conical.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-microscope.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-microscope.attribution.json",
     "provider": "Lucide",
     "name": "microscope",
     "author": "Lucide contributors; Feather where applicable",
@@ -391,7 +391,7 @@
     "bundled_file": "lucide-microscope.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-network.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-network.attribution.json",
     "provider": "Lucide",
     "name": "network",
     "author": "Lucide contributors; Feather where applicable",
@@ -403,7 +403,7 @@
     "bundled_file": "lucide-network.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-pill.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-pill.attribution.json",
     "provider": "Lucide",
     "name": "pill",
     "author": "Lucide contributors; Feather where applicable",
@@ -415,7 +415,7 @@
     "bundled_file": "lucide-pill.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-settings.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-settings.attribution.json",
     "provider": "Lucide",
     "name": "settings",
     "author": "Lucide contributors; Feather where applicable",
@@ -427,7 +427,7 @@
     "bundled_file": "lucide-settings.svg"
   },
   {
-    "file": "src/fig_cos/skills/fig-cos/assets/icon-library/lucide-user-round.attribution.json",
+    "file": "skills/fig-cos/assets/icon-library/lucide-user-round.attribution.json",
     "provider": "Lucide",
     "name": "user-round",
     "author": "Lucide contributors; Feather where applicable",

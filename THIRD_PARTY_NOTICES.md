@@ -4,7 +4,7 @@ The root MIT license covers original project code. It does not relicense upstrea
 
 ## Upstream geometry / native PPTX code
 
-Public MIT files from [yrui-cmd/Cell](https://github.com/yrui-cmd/Cell), commit `2465e0adb0537c47538299dfea4de44e265a1055`, originally `skills/cell_su8/scripts/`. Copyright (c) 2026 yutuur (木纹). The original license is preserved at `src/fig_cos/skills/fig-cos/scripts/vendor/LICENSE`; file hashes are checked against `references/vendor-sha256.json`. This is reuse of public code, not a proprietary service implementation.
+Public MIT files from [yrui-cmd/Cell](https://github.com/yrui-cmd/Cell), commit `2465e0adb0537c47538299dfea4de44e265a1055`, originally `skills/cell_su8/scripts/`. Copyright (c) 2026 yutuur (木纹). The original license is preserved at `skills/fig-cos/scripts/vendor/LICENSE`; file hashes are checked against `references/vendor-sha256.json`. This is reuse of public code, not a proprietary service implementation.
 
 ## Bundled icon assets
 

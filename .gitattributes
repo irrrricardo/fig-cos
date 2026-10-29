@@ -6,4 +6,4 @@
 *.png binary
 *.pptx binary
 *.svg -text
-src/fig_cos/skills/fig-cos/scripts/vendor/** -text
+skills/fig-cos/scripts/vendor/** -text

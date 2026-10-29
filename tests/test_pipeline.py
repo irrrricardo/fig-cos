@@ -49,6 +49,19 @@ class Pipeline(unittest.TestCase):
             self.command('install-skill','--target',target,expected=2)
             self.assertEqual(marker.read_text(),'keep')
 
+    def test_standalone_harness_installation_layouts(self):
+        repository=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as folder:
+            for agent,config in [('codex','.agents'),('claude','.claude'),('deepseek-harness','.dsh')]:
+                with self.subTest(agent=agent):
+                    project=Path(folder)/agent
+                    result=subprocess.run([sys.executable,str(repository/'tools/install_skill.py'),
+                        '--agent',agent,'--scope','project','--project-dir',str(project)],capture_output=True,text=True,encoding='utf-8')
+                    self.assertEqual(result.returncode,0,result.stderr)
+                    target=project/config/'skills/fig-cos'
+                    self.assertTrue((target/'SKILL.md').exists())
+                    self.assertTrue((target/'scripts/vendor/LICENSE').exists())
+
     def test_unedited_label_is_protected(self):
         with tempfile.TemporaryDirectory() as folder:
             folder=Path(folder);before=folder/'before.svg';after=folder/'after.svg'

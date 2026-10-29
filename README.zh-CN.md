@@ -1,56 +1,117 @@
 # fig-cos
 
-**按原图复现科研示意图，交付可编辑 SVG 与原生 PowerPoint。**
+**一个用于科研图片复现的 Agent Skill，交付可编辑 SVG 与原生 PowerPoint。**
 
-[English](README.md) · [使用流程](docs/WORKFLOW.md) · [CLI](docs/CLI.md) · [质量规范](docs/QUALITY.md) · [图库来源与展示署名](docs/GALLERY.md)
+[English](README.md) · [安装 Skill](#quick-start安装到你的-agent) · [SKILL.md](skills/fig-cos/SKILL.md) · [展示与署名](docs/GALLERY.md) · [质量规范](docs/QUALITY.md)
 
-这个项目把已实际使用的科研图复现方法、本地转换脚本与 Agent Skill 整理成独立发行包。模型负责看图、识别文字与安排组件，脚本负责描摹、装配和导出。绘图引擎本身不需要第三方服务密钥。
+**把 Skill 安装到 Codex、Claude Code 或 DeepSeek Harness，附上参考图，再让 Agent 使用它完成复现。**
 
-**默认采用 Previous local tracing：按原图分组件局部描摹，保留组件形象、结构和位置，文字、框与箭头独立重建。** 模糊图片也沿用这一路线，不自动改成通用蛋白、垃圾桶或 AI 重画。只有明确要求重新设计或探索替代方法时才采用其他路线。
+默认采用 **Previous local tracing**：沿原图分组件局部描摹，保留形象、结构和位置，文字、框与箭头独立重建。模糊图片也沿用这条路线，不自动换成通用图标、另一种蛋白折叠或 AI 重画。
+
+本项目的核心是 **[skills/fig-cos/ 技能包](skills/fig-cos/)**。Python 脚本是技能的辅助执行工具，CLI 是可选开发入口；安装 Skill 本身不要求先安装一个 Python 应用，也没有额外的付费绘图后端或内置模型 API 客户端。
 
 ## 过去完成的效果
 
 ![Biomni 参考图复现，历史 PowerPoint 实际显示](docs/images/biomni-reconstruction.png)
 
-这份历史交付包含 127 个真实文字对象、3,978 个原生对象，无嵌入位图。科学插画来自参考图局部恢复/描摹，部分通用 UI 图标和论文缩略图使用替代示意。不是像素一致或语义图层恢复。改编自 Huang 等人的 *Biomni* 图 1，来源 [bioRxiv](https://doi.org/10.1101/2025.05.30.656746)，CC BY 4.0；完整修改及署名见 [展示说明](docs/GALLERY.md)。
+历史交付含 127 个真实文字对象、3,978 个原生对象，无嵌入位图。科学插画来自源图局部恢复/描摹，部分通用 UI 图标及论文缩略图使用替代示意；不宣称像素一致或语义图层恢复。改编自 Huang 等人的 *Biomni* 图 1，[bioRxiv 2025](https://doi.org/10.1101/2025.05.30.656746)，CC BY 4.0。[修改与署名](docs/GALLERY.md)。
 
-![原图、早期图库替换与源图细节恢复的比较](docs/images/source-details.png)
+![原图、早期不合适的图库替换、源图细节恢复的对照](docs/images/source-details.png)
 
-中列是早期类别匹配的替代图标，仅作失败对照；默认采用保留原图形象的路线。
+中列仅作为早期替换不够贴合的对照；默认保留原图形象。论文衍生部分沿用同一来源与许可，图库部分单独署名。
 
-![原创 DNA 与细胞可编辑组件，历史 PowerPoint 实际显示](docs/images/editable-components.png)
+![原创 DNA 和细胞可编辑组件，历史 PowerPoint 实际显示](docs/images/editable-components.png)
 
-原创程序示意，可用 `fig-cos demo` 重跑。[PPT](examples/procedural/editable.pptx) · [SVG](examples/procedural/editable.svg) · [场景](examples/procedural/scene.json)。示意不代表实测分子或细胞结构。
+原创程序示意，不代表实测分子或细胞结构。[场景](examples/procedural/scene.json) · [SVG](examples/procedural/editable.svg) · [PPT](examples/procedural/editable.pptx)。
 
-## 安装与运行
+## Quick start：安装到你的 Agent
+
+### Codex
+
+在 Codex 中让 Skill Installer 安装：
+
+```text
+$skill-installer install https://github.com/irrrricardo/fig-cos/tree/main/skills/fig-cos
+```
+
+也可以先克隆仓库，再用仅复制文件的安装脚本：
 
 ```bash
 git clone https://github.com/irrrricardo/fig-cos.git
 cd fig-cos
-python -m venv .venv
-# 激活虚拟环境后：
-python -m pip install .
-fig-cos doctor
-fig-cos demo --output-dir outputs/demo
+python tools/install_skill.py --agent codex
 ```
 
-需要 Python 3.11+，其中 **Ubuntu/glibc Linux 请使用 Python 3.11 或 3.12**：固定的 VTracer 0.6.12 没有兼容 Ubuntu CPython 3.13 的安装包。Windows 的 CI 覆盖 3.11/3.13。CairoSVG 可能需要单独安装 Cairo 系统运行库；字体也影响版式。输出目录须为新目录。详细依赖与系统差异见 [兼容性](docs/COMPATIBILITY.md)。
+默认安装到 `~/.agents/skills/fig-cos/`。附上参考图后调用：
+
+```text
+$fig-cos 按原图局部描摹复现这张图，保留组件形象、结构和版式，输出可编辑 SVG 与 PPT。
+```
+
+Codex 会自动发现技能；若未显示，重启会话。[官方说明](https://learn.chatgpt.com/docs/build-skills)。
+
+### Claude Code
+
+在已克隆的仓库中执行：
 
 ```bash
-fig-cos trace --input-image crop-2x.png --original-size 132 175 --text-free --preset detail --output-dir outputs/component
-fig-cos compose --scene scene.json --output-dir outputs/figure --export-pptx
-fig-cos export --input-svg approved.svg --output-dir outputs/export
-fig-cos install-skill --target /你的Agent技能目录/fig-cos
+python tools/install_skill.py --agent claude
 ```
 
-公开技能包标识为 `fig-cos`，Python 模块为 `fig_cos`；已有本地 `$fig_cos` 调用不受影响。其他 Agent 需要能读取文件、运行 Python，并能看图或接收明确的文字/布局清单。没有内置 MCP 服务，也不要求使用特定 LLM。
+默认安装到 `~/.claude/skills/fig-cos/`。附图后调用：
 
-## 能力与边界
+```text
+/fig-cos 按原图复现，保留原有组件和布局，输出可编辑 SVG 与 PowerPoint。
+```
 
-- 默认局部颜色轮廓描摹；文字、框、箭头和嵌套组合独立可编辑。
-- 可选跨库检索、源 PDF 局部恢复与从头设计；图库替换不自动用于参考复现。
-- SVG/PPTX 导出与实际 PowerPoint 渲染是不同步骤。后者需要 Windows、桌面 PowerPoint 和 `.[powerpoint]` 额外依赖。
-- `.[pdf]` 使用 PyMuPDF，具有 AGPL/商业双许可，应按用途核对。基本截图描摹和 PPTX 导出不需要它。
-- 路径可编辑不等于恢复原始透明图层、科学身份、分子拓扑或隐藏像素。超分、自动语义分割和生成模型没有集成。
+[Claude Code 的技能目录与调用方式](https://code.claude.com/docs/en/skills)。
 
-项目自写代码采用 MIT；上游代码、图库图标和论文衍生展示各自保留许可与署名。参见 [第三方声明](THIRD_PARTY_NOTICES.md)。开发验证参见 [贡献规范](CONTRIBUTING.md)。
+### DeepSeek Harness
+
+在已克隆的仓库中执行：
+
+```bash
+python tools/install_skill.py --agent deepseek-harness
+```
+
+默认安装到 `~/.dsh/skills/fig-cos/`，设置了 `DSH_HOME` 时跟随该配置。Harness 启用本地文件系统技能提供器后，附图并提示：
+
+```text
+请加载并使用 fig-cos Skill，按原图局部描摹复现这张图片，保留形象、结构与版式，交付可编辑 SVG 和 PPT。
+```
+
+这里指 DeepSeek 官方 **Harness**，不是网页聊天或单独的模型 API。[官方技能提供器说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/skill-filesystem/README.md)。
+
+### 项目内安装 / 手动安装
+
+安装脚本可加 `--scope project --project-dir 你的项目目录`。或从 [Releases](https://github.com/irrrricardo/fig-cos/releases) 下载 Skill ZIP，解压后将完整 `fig-cos` 文件夹放入：
+
+| Agent | 用户级目录 | 项目级目录 |
+| --- | --- | --- |
+| Codex | `~/.agents/skills/fig-cos/` | `<项目>/.agents/skills/fig-cos/` |
+| Claude Code | `~/.claude/skills/fig-cos/` | `<项目>/.claude/skills/fig-cos/` |
+| DeepSeek Harness | `~/.dsh/skills/fig-cos/` | `<项目>/.dsh/skills/fig-cos/` |
+
+**复制整个技能包，不要只复制 SKILL.md。** 安装脚本仅用 Python 标准库、拒绝覆盖已有技能，不会安装依赖或修改 Agent 的配置。已有本机 `$fig_cos` 调用可继续保留。
+
+## Agent 的运行条件
+
+Agent 需要能读取文件、运行 Python，并能看图或接收明确的文字/布局清单。实际调用辅助脚本时，可让 Agent 在自己的执行环境中准备技能包内的 `requirements.txt`。Ubuntu/glibc Linux 使用 Python 3.11/3.12；Windows CI 覆盖 3.11/3.13。CairoSVG 可能需要 Cairo 运行库和合适字体。[兼容性](docs/COMPATIBILITY.md)。
+
+生成原生 PPTX 不需要安装 Office；实际 PowerPoint 预览需要 Windows、桌面 PowerPoint 及可选 COM 依赖。PDF 局部恢复的 PyMuPDF 具有 AGPL/商业双许可，基本截图描摹与导出不需要它。上面的安装目录按官方文档核对，未声称已在每个 Agent 中完成独立端到端视觉验收。
+
+## 使用规范
+
+- 参考图默认局部描摹，文字、框、箭头、组件组合保持独立可编辑。
+- 图库替换、AI 重画、通用组件和实验性精绘，仅在明确要求时采用。
+- 先核对原有形象、结构、连接、遮挡与布局，再看光滑度。路径数量、导出成功都不是质量结论。
+- 不把可编辑路径说成恢复了原始透明图层、分子身份、语义部件或隐藏像素。
+- 按要求交付 SVG/PPT、预览、场景或代码、来源及近似说明；未查看实际 PowerPoint 渲染时如实标明。
+
+[工作流程](docs/WORKFLOW.md) · [质量规范](docs/QUALITY.md) · [接入说明](docs/AGENTS.md)。没有内置 OCR/超分/生成模型，也没有附带 MCP 服务。
+
+## 辅助 CLI 与开发
+
+需要单独调试脚本的开发者可执行 `python -m pip install .`，获得 `fig-cos doctor / trace / compose / export` 等入口。**这是辅助工具，不是用户安装和使用 Skill 的主要方式。** 见 [CLI 文档](docs/CLI.md) 和 [贡献规范](CONTRIBUTING.md)。
+
+自写代码采用 MIT；供应代码、图库和论文衍生展示各自保留许可与署名，见 [第三方声明](THIRD_PARTY_NOTICES.md)。

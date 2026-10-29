@@ -13,7 +13,10 @@ TOOLS={'trace':'trace_asset.py','compose':'compose.py','export':'rebuild.py',
 
 def skill_root():
     portable=Path(__file__).resolve().parent/'skills'/'fig-cos'
-    return portable if portable.is_dir() else Path(__file__).resolve().parents[1]
+    if portable.is_dir():return portable
+    repository=Path(__file__).resolve().parents[2]/'skills'/'fig-cos'
+    if repository.is_dir():return repository
+    return Path(__file__).resolve().parents[1]
 
 def doctor():
     modules={'vtracer':'vtracer','Pillow':'PIL','python-pptx':'pptx','fonttools':'fontTools',

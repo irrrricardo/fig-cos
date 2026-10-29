@@ -4,7 +4,7 @@ import ast,hashlib,json,re,zipfile,tarfile
 import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
-SKILL=ROOT/'src/fig_cos/skills/fig-cos'
+SKILL=ROOT/'skills/fig-cos'
 
 def main():
     entry=(SKILL/'SKILL.md').read_text(encoding='utf-8')
@@ -15,7 +15,7 @@ def main():
     assert 'Previous local tracing' in entry
     vendor=json.loads((SKILL/'references/vendor-sha256.json').read_text(encoding='utf-8'))
     for name,digest in vendor.items():assert hashlib.sha256((SKILL/'scripts/vendor'/name).read_bytes()).hexdigest()==digest,name
-    for path in (ROOT/'src').rglob('*.py'):ast.parse(path.read_text(encoding='utf-8-sig'),filename=str(path))
+    for path in [*(ROOT/'src').rglob('*.py'),*(SKILL/'scripts').rglob('*.py')]:ast.parse(path.read_text(encoding='utf-8-sig'),filename=str(path))
     markdown=[*ROOT.glob('*.md'),*(ROOT/'docs').glob('*.md'),*SKILL.rglob('*.md')]
     for path in markdown:
         for link in re.findall(r'\]\(([^\s)]+)(?:\s+[^)]*)?\)',path.read_text(encoding='utf-8')):

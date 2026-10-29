@@ -10,4 +10,4 @@ Vendor files retain upstream attribution and hashes. If an upstream file changes
 
 ## Releases
 
-Use semantic versions. Build a wheel/sdist with `python -m build`, run tests on a clean installation, and package the complete `src/fig_cos/skills/fig-cos` directory as a portable skill ZIP. Do not publish test outputs or private development archives.
+Use semantic versions. Build a wheel/sdist with `python -m build`, run tests on a clean installation, and package the complete `skills/fig-cos` directory as a portable skill ZIP. Do not publish test outputs or private development archives.

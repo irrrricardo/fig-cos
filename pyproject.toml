@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fig-cos"
 version = "0.1.0"
-description = "Reference-faithful scientific figure reconstruction with editable SVG and native PowerPoint"
+description = "Companion runtime for the fig-cos scientific figure Agent Skill"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
-license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/fig_cos/skills/fig-cos/scripts/vendor/LICENSE", "src/fig_cos/skills/fig-cos/assets/icon-library/LUCIDE-LICENSE.txt"]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "skills/fig-cos/scripts/vendor/LICENSE", "skills/fig-cos/assets/icon-library/LUCIDE-LICENSE.txt"]
 authors = [{name = "irrrricardo"}]
 keywords = ["agent-skills", "scientific-figures", "svg", "powerpoint", "vectorization"]
 dependencies = ["vtracer==0.6.12", "Pillow>=10,<13", "python-pptx>=1.0,<2", "fonttools>=4.50,<5", "picosvg==0.23.0", "cssselect2>=0.7,<1", "tinycss2>=1.2,<2", "skia-pathops>=0.9,<1", "CairoSVG>=2.7,<3", "lxml>=4.9,<7"]

@@ -1,104 +1,138 @@
 # fig-cos
 
-**Reference-faithful scientific figures → editable SVG + native PowerPoint.**
+**An Agent Skill for reconstructing scientific figures as editable SVG and PowerPoint.**
 
-[简体中文](README.zh-CN.md) · [Quick start](#quick-start) · [Agent integration](docs/AGENTS.md) · [Gallery & credits](docs/GALLERY.md) · [Quality standard](docs/QUALITY.md)
+[简体中文](README.zh-CN.md) · [Install the Skill](#quick-start--install-the-skill) · [SKILL.md](skills/fig-cos/SKILL.md) · [Gallery](docs/GALLERY.md) · [Quality standard](docs/QUALITY.md)
 
 ![CI](https://github.com/irrrricardo/fig-cos/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+![Agent Skill](https://img.shields.io/badge/Agent_Skill-Codex%20%7C%20Claude%20Code%20%7C%20DeepSeek_Harness-167d8d)
 ![Code license](https://img.shields.io/badge/code-MIT-green)
 
-fig-cos packages a tested figure-reconstruction workflow, local vector/PPTX tooling, and an Agent Skill. The calling agent supplies visual inspection and planning; deterministic scripts handle tracing, assembly and export. **No LLM API client, paid backend or model key is required by the drawing engine.**
+**Install fig-cos into your agent, attach a reference image, and ask the agent to use the Skill.** Its workflow defaults to **Previous local tracing**: trace individual components from the reference, preserve their appearance and structure, and rebuild text, frames and arrows separately. A blurry screenshot does not silently trigger a generic icon, a different protein fold or AI redraw.
 
-The default is **Previous local tracing**: trace individual components from the reference, retain their appearance and structure, and rebuild text, frames and arrows separately. A blurry input does not silently trigger a different protein fold, generic replacement icon or AI redraw.
+The deliverable is the **[Skill bundle](skills/fig-cos/)**: `SKILL.md`, instructions, scripts and resources. Python helpers support the Skill; a separate CLI is optional. The Skill has no required paid drawing backend or bundled LLM API client. Your agent supplies visual inspection and orchestration using its existing tools.
 
 ## See the results
 
-### A complex biomedical figure, reconstructed as editable objects
+### Complex biomedical figure → editable objects
 
-![Biomni figure reconstruction — historical PowerPoint rendering](docs/images/biomni-reconstruction.png)
+![Biomni reconstruction — historical actual PowerPoint rendering](docs/images/biomni-reconstruction.png)
 
-Historical, inspected Microsoft PowerPoint rendering: **127 live text objects, 3,978 native objects, zero embedded raster pictures**. Scientific pictograms were locally recovered/traced from the reference; some generic UI icons and paper thumbnails were replaced with schematics. This is an approximate reconstruction, not a pixel-identical recovery. Adapted from Huang et al., *Biomni*, Figure 1, [bioRxiv 2025](https://doi.org/10.1101/2025.05.30.656746), **CC BY 4.0**. Changes and individual asset credits: [gallery](docs/GALLERY.md).
+Historical inspected output: **127 live text objects, 3,978 native objects, zero embedded raster pictures**. Scientific pictograms were recovered/traced locally; some generic UI icons and paper thumbnails used schematic replacements. This is an approximate reconstruction, not pixel-identical or semantic-layer recovery. Adapted from Huang et al., *Biomni*, Figure 1, [bioRxiv 2025](https://doi.org/10.1101/2025.05.30.656746), **CC BY 4.0**. [Changes and credits](docs/GALLERY.md).
 
-### Source shape matters more than a matching category
+### Preserve the original shape, not just its category
 
-![Reference details, an earlier generic library match, and refined source-derived contours](docs/images/source-details.png)
+![Original reference, earlier imperfect library substitutions, source-derived details](docs/images/source-details.png)
 
-The middle column is an earlier library substitution, shown as a comparison rather than a recommended result. Source-derived contours preserve the visible protein and biological assembly more closely. Same Biomni source and attribution as above; modified comparison, with additional icon credits in the gallery.
+The middle column is a historical imperfect substitution, shown as a comparison rather than a recommended default. The source-derived contours retain the visible biological structures more closely. Same Biomni source and attribution; additional icon credits are in the gallery.
 
-### Design mode: native components from a reproducible scene
+### New designs: native editable components
 
-![Editable DNA and cell components — historical PowerPoint rendering](docs/images/editable-components.png)
+![Original DNA and cell schematics — historical actual PowerPoint rendering](docs/images/editable-components.png)
 
-Original procedural schematics, not empirical molecular/cellular measurements. [Scene JSON](examples/procedural/scene.json) · [SVG](examples/procedural/editable.svg) · [PPTX](examples/procedural/editable.pptx). Reproduce with `fig-cos demo`.
+Original procedural schematics, not empirical molecular/cellular measurements. [Scene](examples/procedural/scene.json) · [SVG](examples/procedural/editable.svg) · [PPTX](examples/procedural/editable.pptx).
 
-## Quick start
+## Quick start — install the Skill
+
+### Codex
+
+Ask Codex's Skill Installer:
+
+```text
+$skill-installer install https://github.com/irrrricardo/fig-cos/tree/main/skills/fig-cos
+```
+
+Or clone the repository and use the copy-only installer:
 
 ```bash
 git clone https://github.com/irrrricardo/fig-cos.git
 cd fig-cos
-python -m venv .venv
-# Activate .venv for your shell, then:
-python -m pip install .
-fig-cos doctor
-fig-cos demo --output-dir outputs/demo
+python tools/install_skill.py --agent codex
 ```
 
-The demo produces an editable SVG, native PPTX, SVG preview, scene and provenance. `doctor` checks imports and Cairo availability; it does not certify that desktop PowerPoint is installed or that a figure has passed visual review.
+This installs the complete bundle into `~/.agents/skills/fig-cos/`. Then attach your reference and ask:
 
-**On Ubuntu/glibc Linux, use Python 3.11 or 3.12.** The pinned VTracer 0.6.12 release has no compatible Ubuntu CPython 3.13 wheel. Windows 3.11/3.13 are covered by CI. See the exact [support matrix](docs/COMPATIBILITY.md).
+```text
+$fig-cos Reconstruct this reference as editable SVG and PowerPoint.
+Preserve the component shapes, structure and layout; use local tracing.
+```
 
-Windows may need a Cairo runtime on PATH for CairoSVG. On Debian/Ubuntu, install `libcairo2` and a suitable font package; on macOS, a Cairo installation may be needed. Follow [CairoSVG installation guidance](https://cairosvg.org/documentation/) for the host. Fonts affect layout: use fonts available on the rendering machine and compare the result.
+Codex discovers local skills automatically; if it does not appear, restart the session. [Official guidance](https://learn.chatgpt.com/docs/build-skills).
 
-### Trace an inspected text-free component
+### Claude Code
+
+From a clone of this repository:
 
 ```bash
-fig-cos trace --input-image crop-2x.png --original-size 132 175 --text-free --preset detail --output-dir outputs/component
-fig-cos compose --scene scene.json --output-dir outputs/figure --export-pptx
-fig-cos export --input-svg approved.svg --output-dir outputs/export
+python tools/install_skill.py --agent claude
 ```
 
-For reconstruction, crop and record component positions, prepare a text manifest, assemble components at their reference coordinates, and inspect both SVG and PPT. Tracing the whole screenshot does **not** recover editable lettering or semantic parts. All output directories must be new. See the [workflow](docs/WORKFLOW.md) and [CLI](docs/CLI.md).
+The destination is `~/.claude/skills/fig-cos/`. Attach the image and invoke:
 
-## Use with another agent or model
+```text
+/fig-cos Reconstruct this figure as editable SVG and PowerPoint, preserving its original shapes and layout.
+```
+
+[Claude Code Skill locations and invocation](https://code.claude.com/docs/en/skills).
+
+### DeepSeek Harness
+
+From a clone of this repository:
 
 ```bash
-fig-cos install-skill --target /path/to/your/agent/skills/fig-cos
+python tools/install_skill.py --agent deepseek-harness
 ```
 
-Use a new target directory; the installer never overwrites an existing skill. The portable skill is [here](src/fig_cos/skills/fig-cos/SKILL.md). A client needs file access, Python execution, and visual inspection (or an explicit user-provided layout/text manifest). `agents/openai.yaml` is optional host metadata. A model with function calling can invoke the CLI through its own tool runner. **An MCP server is not included in v0.1.0.**
+The destination is `~/.dsh/skills/fig-cos/`, respecting `DSH_HOME` when set. With the Harness's filesystem Skill provider enabled, attach your image and ask:
 
-The public skill identifier is `fig-cos`, following the hyphenated Agent Skills format. The Python import remains `fig_cos`; an existing private `$fig_cos` installation need not be renamed.
+```text
+Load and use the fig-cos Skill to reconstruct this image as editable SVG and PowerPoint.
+Keep the reference appearance, structure and layout.
+```
 
-## Capabilities and boundaries
+This targets the official **DeepSeek Harness**, not the DeepSeek chat website or a provider API. [Official filesystem Skill provider](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/skill-filesystem/README.md).
 
-| Capability | Status |
-| --- | --- |
-| Local color-contour tracing | Implemented; approximate, no new source information |
-| Live text, shapes, nested native PPT groups | Implemented |
-| Supported linear gradients | Implemented; limited SVG subset, unsupported forms fail explicitly |
-| Original PDF region recovery | Optional `pdf` extra; complex clipping/transparency needs inspection |
-| Bioicons / Reactome / SciDraw candidates | Implemented connectors; network and per-asset licenses apply |
-| NIH BioArt | Entry/preview resolver; no universal SVG downloader |
-| Actual PowerPoint rendering | Windows + desktop PowerPoint + `powerpoint` extra |
-| Automatic semantic segmentation / molecule identification | Not implemented |
-| AI generation / super-resolution / structural restoration | Not bundled; optional host tools and explicit user request |
+### Project-only or manual installation
 
-Install optional features with `python -m pip install ".[powerpoint]"` or `python -m pip install ".[pdf]"`. The **PDF extra uses PyMuPDF (AGPL/commercial)**; review its terms before choosing it. Base image tracing and PPTX export do not need that extra. See [compatibility](docs/COMPATIBILITY.md) and [third-party notices](THIRD_PARTY_NOTICES.md).
+Use `--scope project --project-dir /path/to/project`, or copy the complete `skills/fig-cos/` bundle into the host's project Skill root:
 
-## Development
+| Host | User installation | Project installation |
+| --- | --- | --- |
+| Codex | `~/.agents/skills/fig-cos/` | `<project>/.agents/skills/fig-cos/` |
+| Claude Code | `~/.claude/skills/fig-cos/` | `<project>/.claude/skills/fig-cos/` |
+| DeepSeek Harness | `~/.dsh/skills/fig-cos/` | `<project>/.dsh/skills/fig-cos/` |
+
+You can also download the Skill ZIP from [Releases](https://github.com/irrrricardo/fig-cos/releases), unzip it, and copy the `fig-cos` folder to the selected root. **Copy the whole bundle, not only `SKILL.md`.** The helper uses Python's standard library and refuses to overwrite an existing installation. No pip package installation is required to register the Skill.
+
+## What the agent needs
+
+The host must be able to read files and run Python, and must provide visual inspection or an explicit text/layout manifest. The agent can prepare the bundled `requirements.txt` in its execution environment when it needs the helper scripts. **Ubuntu/glibc Linux should use Python 3.11/3.12** with the pinned VTracer version; Windows CI covers 3.11/3.13. CairoSVG may need a Cairo runtime and suitable fonts. [Runtime compatibility](docs/COMPATIBILITY.md).
+
+Actual PowerPoint previewing additionally needs Windows + desktop PowerPoint + the optional COM dependency. Writing native PPTX does not require Office. Optional PDF recovery uses PyMuPDF (AGPL/commercial terms); it is not required for image tracing/export. Agent discovery instructions above were checked against official documentation; interactive end-to-end execution in every listed host has not been independently certified.
+
+## Workflow and quality
+
+- Default: source-component local tracing, live text, geometric frames/arrows and native groups.
+- Explicitly requested new designs may use procedural/library/host-generated assets; those routes do not replace a reference silently.
+- Compare shapes, connections, occlusion, text and layout before smoothness. More/fewer paths and a successful export are not acceptance scores.
+- The output is editable SVG/PPTX with previews and source/approximation records. Hidden scientific identity, original alpha layers and semantic parts are not automatically recovered.
+- Bioicons/Reactome/SciDraw connectors are optional; their individual asset licenses apply. NIH BioArt is an entry/preview resolver, not a universal SVG downloader.
+- No bundled OCR, super-resolution model, image-generation backend, hosted rendering service or MCP server.
+
+[Workflow](docs/WORKFLOW.md) · [Quality standard](docs/QUALITY.md) · [Host integration](docs/AGENTS.md).
+
+## Optional helper CLI / development
+
+Developers can install `python -m pip install .` to expose `fig-cos doctor`, `trace`, `compose`, `export` and other script entry points. **This is companion tooling, not the primary way users install or invoke the Skill.** See [CLI](docs/CLI.md) and [CONTRIBUTING](CONTRIBUTING.md).
 
 ```bash
 python -m pip install -e ".[dev]"
 python tools/validate_release.py
 python -m unittest discover -s tests -v
-python -m build
 ```
-
-CI exercises installation, tracing, SVG/PPTX generation, portable skill resources and layout protection on Windows and Linux. A passing export test is not a scientific or visual acceptance certificate. See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License and acknowledgement
 
-Original code is MIT. Upstream MIT files retain their original license and hashes; downloaded icons and paper-derived documentation images retain their own terms. **The MIT badge does not relicense those assets or dependencies.** See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Original code is MIT. Upstream code, icon assets and paper-derived gallery images retain their own terms; the MIT badge does not relicense them. [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md).
 
-The native geometry/export pipeline includes public MIT code from [yrui-cmd/Cell](https://github.com/yrui-cmd/Cell), commit `2465e0adb0537c47538299dfea4de44e265a1055`. fig-cos does not reproduce or connect to a proprietary Cell server.
+The native geometry/export pipeline includes public MIT code from [yrui-cmd/Cell](https://github.com/yrui-cmd/Cell), commit `2465e0adb0537c47538299dfea4de44e265a1055`. fig-cos neither reproduces nor connects to a proprietary Cell server. The portable Skill identifier is `fig-cos`; an existing private `$fig_cos` installation can remain as it is.
