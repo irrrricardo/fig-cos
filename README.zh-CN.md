@@ -34,7 +34,7 @@ fig-cos doctor
 fig-cos demo --output-dir outputs/demo
 ```
 
-需要 Python 3.11+。CairoSVG 可能需要单独安装 Cairo 系统运行库；字体也影响版式。输出目录须为新目录。详细依赖与系统差异见 [兼容性](docs/COMPATIBILITY.md)。
+需要 Python 3.11+，其中 **Ubuntu/glibc Linux 请使用 Python 3.11 或 3.12**：固定的 VTracer 0.6.12 没有兼容 Ubuntu CPython 3.13 的安装包。Windows 的 CI 覆盖 3.11/3.13。CairoSVG 可能需要单独安装 Cairo 系统运行库；字体也影响版式。输出目录须为新目录。详细依赖与系统差异见 [兼容性](docs/COMPATIBILITY.md)。
 
 ```bash
 fig-cos trace --input-image crop-2x.png --original-size 132 175 --text-free --preset detail --output-dir outputs/component

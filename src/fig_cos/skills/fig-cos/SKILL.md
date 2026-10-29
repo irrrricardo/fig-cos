@@ -46,6 +46,8 @@ python SKILL/scripts/preview_ppt.py --pptx new-export/editable.pptx --output-dir
 
 Python dependencies are in `requirements.txt`. Optional PDF recovery additionally needs `requirements-pdf.txt` (PyMuPDF AGPL/commercial terms). Actual PowerPoint rendering requires Windows, desktop PowerPoint and `requirements-powerpoint.txt`; it is not required merely to write PPTX. CairoSVG previews require a working Cairo runtime and suitable fonts.
 
+Use Python 3.11/3.12 on Ubuntu/glibc Linux: the pinned VTracer 0.6.12 release has no compatible Ubuntu CPython 3.13 wheel. Windows 3.11/3.13 are covered by the repository CI matrix. Do not silently switch tracing engines to bypass this constraint.
+
 Downloads use the external `FIG_COS_CACHE` / XDG / home cache. Network library tools are optional. Unsupported SVG forms fail explicitly; do not silently embed an image and call it a native vector reconstruction. Only supported horizontal/vertical linear gradients and orthogonal transformations are preserved by the gradient adapter.
 
 ## Acceptance and delivery

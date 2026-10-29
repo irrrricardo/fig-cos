@@ -46,6 +46,8 @@ fig-cos demo --output-dir outputs/demo
 
 The demo produces an editable SVG, native PPTX, SVG preview, scene and provenance. `doctor` checks imports and Cairo availability; it does not certify that desktop PowerPoint is installed or that a figure has passed visual review.
 
+**On Ubuntu/glibc Linux, use Python 3.11 or 3.12.** The pinned VTracer 0.6.12 release has no compatible Ubuntu CPython 3.13 wheel. Windows 3.11/3.13 are covered by CI. See the exact [support matrix](docs/COMPATIBILITY.md).
+
 Windows may need a Cairo runtime on PATH for CairoSVG. On Debian/Ubuntu, install `libcairo2` and a suitable font package; on macOS, a Cairo installation may be needed. Follow [CairoSVG installation guidance](https://cairosvg.org/documentation/) for the host. Fonts affect layout: use fonts available on the rendering machine and compare the result.
 
 ### Trace an inspected text-free component

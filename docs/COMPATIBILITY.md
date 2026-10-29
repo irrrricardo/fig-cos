@@ -2,6 +2,10 @@
 
 Python 3.11+; Python dependencies are declared in `pyproject.toml`. Core tracing/export runs locally and has no model API client. CairoSVG may need the Cairo shared library from the OS. Font availability affects text layout; Arial is the historic default, not a font bundled by this project. Choose an installed font when reproducing a scene on another OS.
 
+## Supported CI matrix
+
+Ubuntu/glibc Linux: Python **3.11 and 3.12**. Windows: Python **3.11 and 3.13**. The pinned `vtracer==0.6.12` has no compatible manylinux CPython 3.13 wheel; use Python 3.11/3.12 on Ubuntu instead of silently substituting a different tracing engine. The package's Python minimum is not a promise that every OS/Python/CPU combination has dependency wheels. Other environments require separate verification.
+
 | Feature | Requirement / verification boundary |
 | --- | --- |
 | SVG tracing, assembly, native PPTX writing | Python core dependencies; local Windows verification, Windows/Linux CI |
