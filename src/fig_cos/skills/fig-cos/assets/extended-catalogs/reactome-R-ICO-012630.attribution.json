@@ -1,0 +1,18 @@
+{
+  "provider": "reactome",
+  "id": "R-ICO-012630",
+  "name": "DNA 3D",
+  "author": "Reactome / David Eccles",
+  "description": "Strand model of a linear double-stranded DNA sequence, 30nt long. Colours represent different bases; A:green, C:blue, G:yellow, T:red",
+  "categories": [
+    "cell_element"
+  ],
+  "source_url": "https://reactome.org/content/detail/R-ICO-012630",
+  "download_url": "https://reactome.org/icon/R-ICO-012630.svg",
+  "preview_url": "https://reactome.org/icon/R-ICO-012630.png",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "sha256": "05b9d44fb0c1cd85ed5127ec7c22db0789c96f91227d298432c33fa6e7a89dc2",
+  "modified": false,
+  "bundled_file": "reactome-R-ICO-012630.svg"
+}

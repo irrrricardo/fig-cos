@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-by-3.0/Tissues/Servier/cell-1.svg",
+  "license": "cc-by-3.0",
+  "category": "Tissues",
+  "author": "Servier",
+  "name": "cell-1",
+  "sha": "d95b3d60f5478187e8eabc63cc009099223a5373",
+  "size": 5507,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-by-3.0/Tissues/Servier/cell-1.svg",
+  "sha256": "7325ec277679bc7d63e6d5b69f65d7bf31dff43ec7675da4a6fd194476bd0e5b",
+  "modified": false,
+  "bundled_file": "bioicons-f3d4e489ee-cell-1.svg"
+}

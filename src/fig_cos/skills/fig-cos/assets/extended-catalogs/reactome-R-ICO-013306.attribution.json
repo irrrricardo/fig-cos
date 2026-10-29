@@ -1,0 +1,18 @@
+{
+  "provider": "reactome",
+  "id": "R-ICO-013306",
+  "name": "Ribosome",
+  "author": "Reactome / Cristoffer Sevilla",
+  "description": "The ribosome is a complex molecular machine, found within all living cells, that serves as the site of biological protein synthesis",
+  "categories": [
+    "cell_element"
+  ],
+  "source_url": "https://reactome.org/content/detail/R-ICO-013306",
+  "download_url": "https://reactome.org/icon/R-ICO-013306.svg",
+  "preview_url": "https://reactome.org/icon/R-ICO-013306.png",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "sha256": "b4be15d77cc3c7b3f3f495435a6cc5f089f0e5625ef1b630232f4fb488608973",
+  "modified": false,
+  "bundled_file": "reactome-R-ICO-013306.svg"
+}

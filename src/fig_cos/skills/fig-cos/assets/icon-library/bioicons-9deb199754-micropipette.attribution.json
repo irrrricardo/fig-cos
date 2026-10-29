@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-by-3.0/Chemistry/Servier/micropipette.svg",
+  "license": "cc-by-3.0",
+  "category": "Chemistry",
+  "author": "Servier",
+  "name": "micropipette",
+  "sha": "01ca60b3d5b1ac9403b3186caedc2fec57935c8a",
+  "size": 15217,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-by-3.0/Chemistry/Servier/micropipette.svg",
+  "sha256": "88029da12d315fd46e6a8804b98ae4a78a2801414ae1b35e2647817fcf46dfac",
+  "modified": false,
+  "bundled_file": "bioicons-9deb199754-micropipette.svg"
+}

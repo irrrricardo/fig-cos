@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "mode": "design",
+  "canvas": {"width": 1200, "height": 620, "background": "#ffffff"},
+  "components": [
+    {"id":"title","kind":"text","content":"Editable figure components","attrs":{"x":46,"y":58,"font-size":32,"font-family":"Arial","fill":"#17384d"}},
+    {"id":"dna-panel","kind":"group","children":[
+      {"id":"dna-frame","kind":"shape","tag":"rect","attrs":{"x":46,"y":96,"width":532,"height":420,"rx":22,"fill":"#eff5f7","stroke":"#cfdee5","stroke-width":2}},
+      {"id":"dna-heading","kind":"text","content":"DNA helix","attrs":{"x":78,"y":144,"font-size":24,"font-family":"Arial","fill":"#17384d"}},
+      {"id":"dna","kind":"parametric","generator":"dna","box":[78,179,468,252],"parameters":{"turns":2,"strand_colors":["#156f8d","#bd4857"]}},
+      {"id":"dna-caption","kind":"text","content":"Strands, rungs and alternating crossings","attrs":{"x":78,"y":476,"font-size":18,"font-family":"Arial","fill":"#4b6575"}}
+    ]},
+    {"id":"cell-panel","kind":"group","children":[
+      {"id":"cell-frame","kind":"shape","tag":"rect","attrs":{"x":622,"y":96,"width":532,"height":420,"rx":22,"fill":"#f3f6ef","stroke":"#d9e1d1","stroke-width":2}},
+      {"id":"cell-heading","kind":"text","content":"Cell cluster","attrs":{"x":654,"y":144,"font-size":24,"font-family":"Arial","fill":"#17384d"}},
+      {"id":"cells","kind":"parametric","generator":"cell-cluster","box":[670,175,436,260],"parameters":{"highlight_index":4}},
+      {"id":"cell-caption","kind":"text","content":"Membranes, nuclei and a highlighted cell","attrs":{"x":654,"y":476,"font-size":18,"font-family":"Arial","fill":"#4b6575"}}
+    ]},
+    {"id":"note","kind":"text","content":"Procedural schematics; not empirical molecular or cellular measurements.","attrs":{"x":46,"y":565,"font-size":17,"font-family":"Arial","fill":"#667d8a"}}
+  ]
+}

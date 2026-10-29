@@ -1,0 +1,18 @@
+{
+  "provider": "reactome",
+  "id": "R-ICO-012629",
+  "name": "DNA",
+  "author": "Reactome / Cristoffer Sevilla",
+  "description": "Deoxyribonucleic acid",
+  "categories": [
+    "cell_element"
+  ],
+  "source_url": "https://reactome.org/content/detail/R-ICO-012629",
+  "download_url": "https://reactome.org/icon/R-ICO-012629.svg",
+  "preview_url": "https://reactome.org/icon/R-ICO-012629.png",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "sha256": "dad98b9a049bb289eecc1e5b4f70a1eaa064ac7df192b25f79f2899c91277c21",
+  "modified": false,
+  "bundled_file": "reactome-R-ICO-012629.svg"
+}

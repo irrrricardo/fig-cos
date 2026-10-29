@@ -1,0 +1,11 @@
+{
+  "provider": "Lucide",
+  "name": "dna",
+  "author": "Lucide contributors; Feather where applicable",
+  "license": "ISC; derived Feather icons MIT",
+  "license_url": "https://lucide.dev/license",
+  "url": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/dna.svg",
+  "sha256": "fb1e39ad72394a4090aaaeb620fc8057d72e3df9497cbbbd26247ba57e747431",
+  "modified": false,
+  "bundled_file": "lucide-dna.svg"
+}

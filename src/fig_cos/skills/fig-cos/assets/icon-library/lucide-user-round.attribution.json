@@ -1,0 +1,11 @@
+{
+  "provider": "Lucide",
+  "name": "user-round",
+  "author": "Lucide contributors; Feather where applicable",
+  "license": "ISC; derived Feather icons MIT",
+  "license_url": "https://lucide.dev/license",
+  "url": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/user-round.svg",
+  "sha256": "84870f26f3faf8da45da84174517519e81b9e8f00319c78954fcbb74f50038a1",
+  "modified": false,
+  "bundled_file": "lucide-user-round.svg"
+}

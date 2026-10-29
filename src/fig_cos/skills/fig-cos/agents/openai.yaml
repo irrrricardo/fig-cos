@@ -1,0 +1,4 @@
+interface:
+  display_name: "fig-cos · 图片复现与可编辑绘图"
+  short_description: "参考图默认局部描摹保真复现，另支持示意图设计，导出矢量 SVG 和可编辑 PPT"
+  default_prompt: "使用 $fig-cos 处理我的图形任务。参考图片默认沿用 Previous local tracing：按原图分组件局部描摹，保留形象、结构与布局，文字和框独立重建；只有我明确要求时才重画或替换组件。从头设计按我的说明执行。输出可编辑 SVG 与 PowerPoint 并查看实际渲染。"

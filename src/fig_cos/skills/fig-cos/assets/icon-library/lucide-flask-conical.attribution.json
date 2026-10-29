@@ -1,0 +1,11 @@
+{
+  "provider": "Lucide",
+  "name": "flask-conical",
+  "author": "Lucide contributors; Feather where applicable",
+  "license": "ISC; derived Feather icons MIT",
+  "license_url": "https://lucide.dev/license",
+  "url": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/flask-conical.svg",
+  "sha256": "a2ce857c159bef4c128a6d9f0b6dcbd6504ecf1a2a670ee220efd14fd032b561",
+  "modified": false,
+  "bundled_file": "lucide-flask-conical.svg"
+}

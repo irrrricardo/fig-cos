@@ -1,0 +1,11 @@
+{
+  "provider": "Lucide",
+  "name": "file-text",
+  "author": "Lucide contributors; Feather where applicable",
+  "license": "ISC; derived Feather icons MIT",
+  "license_url": "https://lucide.dev/license",
+  "url": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/file-text.svg",
+  "sha256": "52ca55846c202335fb870c8aa23e9345630ec10489303756d62e750f7109605c",
+  "modified": false,
+  "bundled_file": "lucide-file-text.svg"
+}

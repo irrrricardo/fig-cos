@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-by-3.0/Blood_Immunology/Servier/antibody-1.svg",
+  "license": "cc-by-3.0",
+  "category": "Blood_Immunology",
+  "author": "Servier",
+  "name": "antibody-1",
+  "sha": "d191a7dfe65ea117a2dc7fa4dd0d0c3d90d9224a",
+  "size": 4331,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-by-3.0/Blood_Immunology/Servier/antibody-1.svg",
+  "sha256": "c985e8629baf3854f655b97dd0b3dd666fedeeda570db0811a93feb657ecb3b4",
+  "modified": false,
+  "bundled_file": "bioicons-028e11d8a6-antibody-1.svg"
+}

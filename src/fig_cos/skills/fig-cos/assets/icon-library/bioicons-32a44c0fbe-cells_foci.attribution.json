@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-0/Cell_culture/Marcel_Tisch/cells_foci.svg",
+  "license": "cc-0",
+  "category": "Cell_culture",
+  "author": "Marcel_Tisch",
+  "name": "cells_foci",
+  "sha": "10a6c69d3a1037a6e29f4754b3f4890494f30756",
+  "size": 20344,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-0/Cell_culture/Marcel_Tisch/cells_foci.svg",
+  "sha256": "f618f2a2157c4904fc6502ed9cae637d716d5c9f6197399bebfb64dd980ef6e0",
+  "modified": false,
+  "bundled_file": "bioicons-32a44c0fbe-cells_foci.svg"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version":1,"mode":"design","canvas":{"width":1320,"height":560,"background":"#ffffff"},
+  "components":[
+    {"id":"title","kind":"text","content":"Generic editable design examples","attrs":{"x":36,"y":48,"font-size":30,"font-family":"Arial","fill":"#19384d"}},
+    {"id":"bin","kind":"parametric","generator":"wheeled-bin","box":[70,90,300,365],"parameters":{}},
+    {"id":"protein","kind":"parametric","generator":"ribbon-protein","box":[490,90,300,365],"parameters":{}},
+    {"id":"cells","kind":"parametric","generator":"cell-aggregate","box":[910,90,300,365],"parameters":{}},
+    {"id":"note","kind":"text","content":"Schematic representations; no hidden source pixels or exact molecular identity are inferred.","attrs":{"x":36,"y":520,"font-size":18,"font-family":"Arial","fill":"#546f80"}}
+  ]
+}

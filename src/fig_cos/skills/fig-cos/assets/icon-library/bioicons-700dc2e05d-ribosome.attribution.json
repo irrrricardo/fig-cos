@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-0/Intracellular_components/jaiganesh/ribosome.svg",
+  "license": "cc-0",
+  "category": "Intracellular_components",
+  "author": "jaiganesh",
+  "name": "ribosome",
+  "sha": "e905319692f3f2dc34ae387aeb2396c1265bd85f",
+  "size": 7065,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-0/Intracellular_components/jaiganesh/ribosome.svg",
+  "sha256": "0a1d58901bf40efd3d937203d63531bf295b06ce1fcceb53b08cc7e1463ca80f",
+  "modified": false,
+  "bundled_file": "bioicons-700dc2e05d-ribosome.svg"
+}

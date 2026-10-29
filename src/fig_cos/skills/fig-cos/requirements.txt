@@ -1,0 +1,10 @@
+vtracer==0.6.12
+Pillow>=10,<13
+python-pptx>=1.0,<2
+fonttools>=4.50,<5
+picosvg==0.23.0
+cssselect2>=0.7,<1
+tinycss2>=1.2,<2
+skia-pathops>=0.9,<1
+CairoSVG>=2.7,<3
+lxml>=4.9,<7

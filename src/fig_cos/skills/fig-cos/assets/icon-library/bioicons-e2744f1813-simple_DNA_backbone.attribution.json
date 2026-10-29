@@ -1,0 +1,15 @@
+{
+  "path": "static/icons/cc-by-4.0/Nucleic_acids/Marnie-Maddock/simple_DNA_backbone.svg",
+  "license": "cc-by-4.0",
+  "category": "Nucleic_acids",
+  "author": "Marnie-Maddock",
+  "name": "simple_DNA_backbone",
+  "sha": "2c462f8a1a3429502c3ee4b9e30e9c59e8f46d1b",
+  "size": 8098,
+  "provider": "Bioicons",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://raw.githubusercontent.com/duerrsimon/bioicons/d29e766ea7580b8063c4f47b29e872db40a4d979/static/icons/cc-by-4.0/Nucleic_acids/Marnie-Maddock/simple_DNA_backbone.svg",
+  "sha256": "88615c1441ad65a6abd7b3f86d99e9d28ae5d32a46da4db94a1b770f58991b42",
+  "modified": false,
+  "bundled_file": "bioicons-e2744f1813-simple_DNA_backbone.svg"
+}

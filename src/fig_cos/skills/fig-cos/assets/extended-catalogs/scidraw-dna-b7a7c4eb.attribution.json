@@ -1,0 +1,14 @@
+{
+  "provider": "scidraw",
+  "id": "dna-b7a7c4eb",
+  "name": "DNA",
+  "author": "Vivek Kumar",
+  "description": "10.5281/zenodo.4072320",
+  "source_url": "https://scidraw.io/drawing/dna-b7a7c4eb",
+  "download_url": "https://scidraw.io/media/1272892186.svg",
+  "license": "cc-by",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "sha256": "0917f149c6c6cf225be195164dab1df0422e9345f2fef466af7901f7b9cc9c9b",
+  "modified": false,
+  "bundled_file": "scidraw-dna-b7a7c4eb.svg"
+}

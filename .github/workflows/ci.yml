@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install Cairo and fonts on Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libcairo2 fonts-liberation
+      - name: Install Cairo on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install graphviz --yes --no-progress
+          $cairoPath = 'C:\Program Files\Graphviz\bin'
+          $cairoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - run: python -m pip install -e ".[dev]"
+      - run: fig-cos doctor
+      - run: python tools/validate_release.py
+      - run: python -m unittest discover -s tests -v
+      - run: python -m build
+      - run: python tools/validate_release.py

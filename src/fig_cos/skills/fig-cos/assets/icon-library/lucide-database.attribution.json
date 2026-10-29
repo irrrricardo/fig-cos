@@ -1,0 +1,11 @@
+{
+  "provider": "Lucide",
+  "name": "database",
+  "author": "Lucide contributors; Feather where applicable",
+  "license": "ISC; derived Feather icons MIT",
+  "license_url": "https://lucide.dev/license",
+  "url": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/database.svg",
+  "sha256": "471eb14bc8d144896a82dfc4aa9daf350f769f0896f4bef33e50aabdbb51130d",
+  "modified": false,
+  "bundled_file": "lucide-database.svg"
+}
