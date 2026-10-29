@@ -5,3 +5,5 @@
 *.yaml text eol=lf
 *.png binary
 *.pptx binary
+*.svg -text
+src/fig_cos/skills/fig-cos/scripts/vendor/** -text
